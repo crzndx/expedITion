@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de" ng-app="expedITionCV">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ExpedITion Lebenslauf</title>
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Angular -->
+    <script src="bower_components/angularjs/angular.js"></script>
+    <script>
+        expedITionCV = angular.module('expedITionCV', []);
+        expedITionCV.controller('CvController', function ($scope, $http) {
+
+           $http.get(
+                   'cv.json',
+                   {
+                       headers : {
+                           'Content-Type' : 'application/json'
+                       }
+                   }
+           ).success( function (res) {
+                // fill scope from json file
+                $scope.cv = res;
+           });
+        });
+    </script>
+</head>
+
+<body class="container" ng-controller="CvController">
+    <header id="header" class="row page-header">
+
+        <div class="row page-header">
+          <h1>Lebenslauf - {{cv.Person.name}} '{{cv.Person.middleName}}' {{cv.Person.surname}}</h1>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <img ng-src="{{cv.Person.image}}" class="img-responsive">
+          </div>
+          <div class="col-md-9">
+            <ul class="list-unstyled">
+              <li>Geburtstag: {{cv.Person.dayOfBirth}}</li>
+              <li>Geburtsort: {{cv.Person.placeOfBirth}}</li>
+              <li>Nationalität: {{cv.Person.nationality}}</li>
+              <li>
+                <hr>
+              </li>
+              <li>Addresse: {{cv.Person.address}}</li>
+              <li>Mobile: {{cv.Person.mobile}}</li>
+              <li>E-mail: {{cv.Person.email}}</li>
+            </ul>
+          </div>
+        </div>
+        </header>
+        <div class="container">
+        <div id="work" class="row page-header">
+          <h2>Berufliche Praxis</h2>
+
+
+          <div class="row" ng-repeat="profession in cv.Professional">
+            <div class="col-md-2">
+              <em>{{profession.from}} – {{profession.to}}</em>
+            </div>
+            <div class="col-md-10">
+              <h3>{{profession.title}}</h3>
+              <h4>{{profession.location}}</h4>
+            </div>
+          </div>
+        </div>
+        <div id="education" class="row page-header">
+          <h2>Ausbildung</h2>
+
+
+          <div class="row" ng-repeat="education in cv.Education">
+            <div class="col-md-2">
+              <em>{{education.from}} – {{education.to}}</em>
+            </div>
+            <div class="col-md-10">
+              <h3>{{education.name}}, {{education.location}}</h3>
+              <p>Abschlussnote: <strong>{{education.mark}}</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div id="skills" class="row page-header">
+          <h2>Professional Skills</h2>
+
+          <div class="row">
+            <div class="col-md-2">
+              <p><strong>Programmiersprachen:</strong>
+              </p>
+            </div>
+            <div class="col-md-10">
+              <ul class="list-inline list-unstyled">
+                <li ng-repeat="programmingLanguage in cv.Skills.Programming">{{programmingLanguage}}</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-2">
+              <p><strong>Sprachen:</strong>
+              </p>
+            </div>
+            <div class="col-md-10">
+              <ul class="list-unstyled">
+                <li ng-repeat="language in cv.Skills.Languages">{{language}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div id="personal" class="row page-header">
+          <h2>Persönliches</h2>
+
+
+          <div class="row">
+            <div class="col-md-2">
+              <p><strong>Hobbies:</strong>
+              </p>
+            </div>
+            <div class="col-md-4">
+              <ul class="list-unstyled">
+                <li ng-repeat="hobby in cv.Others.Hobby">{{hobby}}</li>
+              </ul>
+            </div>
+            <div class="col-md-2">
+              <p><strong>Interessen:</strong>
+              </p>
+            </div>
+            <div class="col-md-4">
+              <ul class="list-unstyled">
+                  <li ng-repeat="interest in cv.Others.Interests">{{interest}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

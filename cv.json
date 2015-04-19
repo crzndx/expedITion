@@ -1,0 +1,50 @@
+{
+  "Person": {
+    "name" : "Edward",
+    "surname" : "Stark",
+    "middleName" : "Tony",
+    "dateOfBirth" : "1.5.1968",
+    "placeOfBirth" : "Long Island New York, USA",
+    "nationality" : "Deutsch",
+    "address" : "10880 Malibu Point, 90265",
+    "mobile" : "123456",
+    "email" : "tony.stark@capgemini.com",
+    "image" : "images/iStock_Superheld.jpg"
+  },
+  "Professional" :
+    [
+      {
+        "from" : "2011",
+        "to" : "",
+        "title": "Software-Developer",
+        "location": "Superhelden Akademie - Munich"
+      }
+    ]
+  ,
+  "Education" :
+    [
+      {
+        "from" : "2011",
+        "to" : "2013",
+        "name": "Master of Science Medieninformatik mit Mediengestaltung",
+        "location": "Munich",
+        "mark": "1.0"
+      },
+      {
+        "from" : "2009",
+        "to" : "2011",
+        "name": "Bachelor of Science Medieninformatik mit Mediengestaltung",
+        "location": "Munich",
+        "mark": "2.0"
+        }
+    ]
+  ,
+  "Skills" : {
+    "Programming": ["Python (5)", "C++ (3)", "Java (4)", "SQL (3)", "HTML 5 (5)", "CSS3 (5)", "JavaScript/JQuery (5)", "iPhone (Objectified C) (3)", "Android (Java) (3)"],
+    "Languages" : ["German", "English"]
+  },
+  "Others": {
+      "Hobby" : ["Sport: Laufen", "Schwimmen"],
+      "Interests" : ["Kino", "Comics"]
+  }
+}
