@@ -1,0 +1,12 @@
+{
+  "name": "expeditionCoderChallenge",
+  "version": "0.3.0",
+  "description": "expeditionCoderChallenge",
+  "main": "app.js",
+  "dependencies": {
+    "bower": "^1.4.1",
+    "jshint": "^2.7.0",
+    "express": "^4.12.3",
+    "mongodb": "^2.0.28"
+  }
+}
