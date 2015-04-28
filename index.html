@@ -14,17 +14,15 @@
         expedITionCV = angular.module('expedITionCV', []);
         expedITionCV.controller('CvController', function ($scope, $http) {
 
-           $http.get(
-                   'cv.json',
-                   {
-                       headers : {
-                           'Content-Type' : 'application/json'
-                       }
-                   }
-           ).success( function (res) {
-                // fill scope from json file
-                $scope.cv = res;
-           });
+            /* query for CV data */
+            $http.get('/cv')
+                    .success(function(data) {
+                        $scope.cv = data;
+                    })
+                    .error(function(data) {
+                        console.log('Error: ' + data);
+                    });
+
         });
     </script>
 </head>
