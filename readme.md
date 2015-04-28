@@ -18,6 +18,12 @@ mongod
 
 to make it run, if mongodb is correctly defined in your PATH. Also make sure port 27017 is reserved for mongodb.
 
+Optionally type
+```
+npm install
+```
+to resolve project dependencies.
+
 To start the CV-app type into your console:
 ```
 node app.js
